@@ -1,9 +1,11 @@
 package com.example.demo.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Workshops {
@@ -13,4 +15,7 @@ public class Workshops {
 	private String name;
 	private LocalDate startDate;
 	private LocalDate endDate;
+	
+	@OneToMany(mappedBy="workshops")
+	private List<Session> sessions;
 }
